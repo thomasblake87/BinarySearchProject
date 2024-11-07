@@ -82,7 +82,6 @@ int main() {
 	int target2 = 3;
 
 	int recursiveBinaryResult = recursiveBinarySearch(data, target1, 0, data.size() - 1);
-	int recursiveBinaryResult2 = recursiveBinarySearch(data, target2, 0, data.size() - 1);
 	//Recursive binary search
 	if (recursiveBinaryResult != -1) {
 		std::cout << "Target " << target1 << " found at location " << recursiveBinaryResult << endl;
@@ -91,13 +90,5 @@ int main() {
 		std::cout << "Target " << target1 << " was not found" << endl;
 	}
 
-	if (recursiveBinaryResult2 != -1) {
-		std::cout << "Target " << target2 << " found at location " << recursiveBinaryResult2 << endl;
-	}
-	else {
-		std::cout << "Target " << target2 << " was not found" << endl;
-	}
-
 	return 0;
 }
-
