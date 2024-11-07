@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include <ctime>
 
 using namespace std;
 
@@ -62,6 +63,8 @@ int sequentialSearch(const std::vector<int>& vec, int target) {
 }
 
 int main() {
+	srand(time(0));
+
 	int x = rand() % 100 + 1;
 	int y = rand() % 100 + 1;
 	int z = rand() % 100 + 1;
@@ -78,13 +81,54 @@ int main() {
 	printVector(data);
 
 	//target1 is in the list, target2 is not
-	int target1 = 15;
-	int target2 = 3;
+
+	int target1 = rand() % 6;
+	if (target1 == 0) {
+		target1 = x;
+	}
+	else if (target1 == 1) {
+		target1 = y;
+	}
+	else if (target1 == 2) {
+		target1 = z;
+	}
+	else if (target1 == 3) {
+		target1 = a;
+	}
+	else if (target1 == 4) {
+		target1 = b;
+	}
+	else if (target1 == 5) {
+		target1 = c;
+	}
 
 	int recursiveBinaryResult = recursiveBinarySearch(data, target1, 0, data.size() - 1);
 	//Recursive binary search
 	if (recursiveBinaryResult != -1) {
 		std::cout << "Target " << target1 << " found at location " << recursiveBinaryResult << endl;
+	}
+	else {
+		std::cout << "Target " << target1 << " was not found" << endl;
+	}
+
+
+	//Iterative binary search
+	int IBR = iterativeBinarySearch(data, target1);
+
+	cout << "Using iterative binary search: " << endl;
+	if (IBR != -1) {
+		std::cout << "Target " << target1 << " found at location " << IBR << endl;
+	}
+	else {
+		std::cout << "Target " << target1 << " was not found" << endl;
+	}
+
+	//Sequential search
+	int SS = sequentialSearch(data, target1);
+
+	cout << "Using sequential search: " << endl;
+	if (SS != -1) {
+		std::cout << "Target " << target1 << " found at location " << SS << endl;
 	}
 	else {
 		std::cout << "Target " << target1 << " was not found" << endl;
