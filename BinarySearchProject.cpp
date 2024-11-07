@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <random>
 
 using namespace std;
 
@@ -61,7 +62,13 @@ int sequentialSearch(const std::vector<int>& vec, int target) {
 }
 
 int main() {
-	vector<int> data = { 4, 51, 1, 15, 91, 12 }; //Numbers to test
+	int x = rand() % 100 + 1;
+	int y = rand() % 100 + 1;
+	int z = rand() % 100 + 1;
+	int a = rand() % 100 + 1;
+	int b = rand() % 100 + 1;
+	int c = rand() % 100 + 1;
+	vector<int> data = { a, b, c, x, y, z }; //Numbers to test
 
 	//Sort vector data
 	sort(data.begin(), data.end());
